@@ -1,4 +1,4 @@
-package ro.unitbv.muzeu.cetateafagaras.controllers;
+package ro.unitbv.muzeu.cetateafagaras.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,19 +15,17 @@ import ro.unitbv.muzeu.cetateafagaras.models.Room;
 public class RoomDTO {
 
   private Long id;
+  private Long roomId;
   private String title;
   private String description;
-  private String images;
-  private String audio;
   private String tourName;
   private String mapPosition;
 
   public RoomDTO(Room r) {
     this.id = r.getId();
+    this.roomId = r.getRoomId();
     this.title = r.getTitle();
     this.description = r.getDescription();
-    this.images = r.getImages();
-    this.audio = r.getAudio();
     this.tourName = r.getTourName();
     this.mapPosition = r.getMapPosition();
   }

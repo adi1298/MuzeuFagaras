@@ -10,35 +10,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import ro.unitbv.muzeu.cetateafagaras.dtos.RoomDTO;
-
+import ro.unitbv.muzeu.cetateafagaras.dtos.FileModelDTO;
 
 @Entity
-@Table(name = "museum_rooms")
+@Table(name = "media_files")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
-public class Room {
+public class FileModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Long fileId;
+  private String fileName;
+  private String fileType;
+  private byte[] fileData;
   private Long roomId;
-  private String title;
-  private String description;
-  private String tourName;
-  private String mapPosition;
 
-
-  public Room(RoomDTO r) {
-    this.id = r.getId();
-    this.roomId = r.getRoomId();
-    this.title = r.getTitle();
-    this.description = r.getDescription();
-    this.tourName = r.getTourName();
-    this.mapPosition = r.getMapPosition();
+  public FileModel(FileModelDTO room) {
+    this.fileId = room.getFileId();
+    this.fileName = room.getFileName();
+    this.fileType = room.getFileType();
+    this.fileData = room.getFileData();
+    this.roomId = room.getRoomId();
   }
-
 }
